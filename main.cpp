@@ -1,51 +1,33 @@
 #include <iostream>
-#include "Exception.h"
+#include "Object.h"
 
 using namespace std;
 using namespace DTLib;
 
+class Test : public Object
+{
+public:
+    unsigned long long i;
+    unsigned long long j;
+};
+
+class Child : public Test
+{
+public:
+    unsigned long long k;
+};
+
 int main()
 {
-    try
-    {
-//        throw Exception("test", __FILE__, __LINE__);
-        THROW_EXCEPTION(NullPointerException, "test");
-    }
-    catch (const ArithmeticException& e)
-    {
-        cout << "catch(const ArithmeticException& e)" << endl;
-        cout << e.message() << endl;
-        cout << e.location() << endl;
-    }
-    catch (const NullPointerException& e)
-    {
-        cout << "catch(const NullPointerException& e)" << endl;
-        cout << e.message() << endl;
-        cout << e.location() << endl;
-    }
-    catch (const IndexOfBoundsException& e)
-    {
-        cout << "catch(const IndexOfBoundsException& e)" << endl;
-        cout << e.message() << endl;
-        cout << e.location() << endl;
-    }
-    catch (const NoEnoughMemoryException& e)
-    {
-        cout << "catch(const NoEnoughMemoryException& e)" << endl;
-        cout << e.message() << endl;
-        cout << e.location() << endl;
-    }
-    catch (const InvalidParameterException& e)
-    {
-        cout << "catch(const InvalidParameterException& e)" << endl;
-        cout << e.message() << endl;
-        cout << e.location() << endl;
-    }
-    catch (const Exception& e)
-    {
-        cout << "catch(const Exception& e)" << endl;
-        cout << e.message() << endl;
-        cout << e.location() << endl;
-    }
+    Object* obj1 = new Test();
+    Object* obj2 = new Child();
+
+    cout << "obj1 = " << obj1 << endl;
+    cout << "obj2 = " << obj2 << endl;
+    // ...
+
+    delete obj1;
+    delete obj2;
+
     return 0;
 }

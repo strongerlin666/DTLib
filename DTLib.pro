@@ -5,9 +5,11 @@ CONFIG  -= qt
 
 SOURCES += \
     Exception.cpp \
+    Object.cpp \
     main.cpp
 
 HEADERS += \
     Exception.h \
+    Object.h \
     SmartPointer.h
 
