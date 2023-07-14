@@ -7,7 +7,7 @@ using namespace std;
 namespace DTLib
 {
 
-void DTLib::Exception::init(const char *message, const char *file, int line)
+void Exception::init(const char* message, const char* file, int line)
 {
     m_message = strdup(message);
 
@@ -36,30 +36,30 @@ void DTLib::Exception::init(const char *message, const char *file, int line)
     }
 }
 
-Exception::Exception(const char *message)
+Exception::Exception(const char* message)
 {
     init(message, nullptr, 0);
 }
 
-Exception::Exception(const char *file, int line)
+Exception::Exception(const char* file, int line)
 {
     init(nullptr, file, line);
 }
 
-Exception::Exception(const char *message, const char *file, int line)
+Exception::Exception(const char* message, const char* file, int line)
 {
     init(message, file, line);
 }
 
-Exception::Exception(const Exception &e)
+Exception::Exception(const Exception& e)
 {
     m_message = strdup(e.m_message);
     m_location = strdup(e.m_location);
 }
 
-Exception& Exception::operator=(const Exception &e)
+Exception& Exception::operator= (const Exception& e)
 {
-    if( this != &e)
+    if( this != &e )
     {
         free(m_message);
         free(m_location);
@@ -71,12 +71,12 @@ Exception& Exception::operator=(const Exception &e)
     return *this;
 }
 
-const char *Exception::message() const
+const char* Exception::message() const
 {
     return m_message;
 }
 
-const char *Exception::location() const
+const char* Exception::location() const
 {
     return m_location;
 }

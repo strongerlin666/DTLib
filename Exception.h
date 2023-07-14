@@ -33,14 +33,14 @@ class ArithmeticException : public Exception
 {
 public:
 //    ArithmeticException() : Exception(nullptr, nullptr, 0) {};
-    ArithmeticException() : Exception(0) {};
-    ArithmeticException(const char* message) : Exception(message) {};
-    ArithmeticException(const char* file, int line) : Exception(file, line) {};
-    ArithmeticException(const char* message, const char* file, int line) : Exception(message, file, line) {};
+    ArithmeticException() : Exception(0) { }
+    ArithmeticException(const char* message) : Exception(message) { }
+    ArithmeticException(const char* file, int line) : Exception(file, line) { }
+    ArithmeticException(const char* message, const char* file, int line) : Exception(message, file, line) { }
 
-    ArithmeticException(const ArithmeticException& e) : Exception(e) {};
+    ArithmeticException(const ArithmeticException& e) : Exception(e) { }
 
-    ArithmeticException operator= (const ArithmeticException& e)
+    ArithmeticException& operator= (const ArithmeticException& e)
     {
         Exception::operator=(e);
 
@@ -51,14 +51,14 @@ public:
 class NullPointerException : public Exception
 {
 public:
-    NullPointerException() : Exception(0) {};
-    NullPointerException(const char* message) : Exception(message) {};
-    NullPointerException(const char* file, int line) : Exception(file, line) {};
-    NullPointerException(const char* message, const char* file, int line) : Exception(message, file, line) {};
+    NullPointerException() : Exception(0) { }
+    NullPointerException(const char* message) : Exception(message) { }
+    NullPointerException(const char* file, int line) : Exception(file, line) { }
+    NullPointerException(const char* message, const char* file, int line) : Exception(message, file, line) { }
 
-    NullPointerException(const NullPointerException& e) : Exception(e) {};
+    NullPointerException(const NullPointerException& e) : Exception(e) { }
 
-    NullPointerException operator= (const NullPointerException& e)
+    NullPointerException& operator= (const NullPointerException& e)
     {
         Exception::operator=(e);
 
@@ -66,17 +66,17 @@ public:
     }
 };
 
-class IndexOfBoundsException : public Exception
+class IndexOutOfBoundsException : public Exception
 {
 public:
-    IndexOfBoundsException() : Exception(0) {};
-    IndexOfBoundsException(const char* message) : Exception(message) {};
-    IndexOfBoundsException(const char* file, int line) : Exception(file, line) {};
-    IndexOfBoundsException(const char* message, const char* file, int line) : Exception(message, file, line) {};
+    IndexOutOfBoundsException() : Exception(0) { }
+    IndexOutOfBoundsException(const char* message) : Exception(message) { }
+    IndexOutOfBoundsException(const char* file, int line) : Exception(file, line) { }
+    IndexOutOfBoundsException(const char* message, const char* file, int line) : Exception(message, file, line) { }
 
-    IndexOfBoundsException(const IndexOfBoundsException& e) : Exception(e) {};
+    IndexOutOfBoundsException(const IndexOutOfBoundsException& e) : Exception(e) { }
 
-    IndexOfBoundsException operator= (const IndexOfBoundsException& e)
+    IndexOutOfBoundsException& operator= (const IndexOutOfBoundsException& e)
     {
         Exception::operator=(e);
 
@@ -87,14 +87,14 @@ public:
 class NoEnoughMemoryException : public Exception
 {
 public:
-    NoEnoughMemoryException() : Exception(0) {};
-    NoEnoughMemoryException(const char* message) : Exception(message) {};
-    NoEnoughMemoryException(const char* file, int line) : Exception(file, line) {};
-    NoEnoughMemoryException(const char* message, const char* file, int line) : Exception(message, file, line) {};
+    NoEnoughMemoryException() : Exception(0) { }
+    NoEnoughMemoryException(const char* message) : Exception(message) { }
+    NoEnoughMemoryException(const char* file, int line) : Exception(file, line) { }
+    NoEnoughMemoryException(const char* message, const char* file, int line) : Exception(message, file, line) { }
 
-    NoEnoughMemoryException(const NoEnoughMemoryException& e) : Exception(e) {};
+    NoEnoughMemoryException(const NoEnoughMemoryException& e) : Exception(e) { }
 
-    NoEnoughMemoryException operator= (const NoEnoughMemoryException& e)
+    NoEnoughMemoryException& operator= (const NoEnoughMemoryException& e)
     {
         Exception::operator=(e);
 
@@ -105,14 +105,14 @@ public:
 class InvalidParameterException : public Exception
 {
 public:
-    InvalidParameterException() : Exception(0) {};
-    InvalidParameterException(const char* message) : Exception(message) {};
-    InvalidParameterException(const char* file, int line) : Exception(file, line) {};
-    InvalidParameterException(const char* message, const char* file, int line) : Exception(message, file, line) {};
+    InvalidParameterException() : Exception(0) { }
+    InvalidParameterException(const char* message) : Exception(message) { }
+    InvalidParameterException(const char* file, int line) : Exception(file, line) { }
+    InvalidParameterException(const char* message, const char* file, int line) : Exception(message, file, line) { }
 
-    InvalidParameterException(const InvalidParameterException& e) : Exception(e) {};
+    InvalidParameterException(const InvalidParameterException& e) : Exception(e) { }
 
-    InvalidParameterException operator= (const InvalidParameterException& e)
+    InvalidParameterException& operator= (const InvalidParameterException& e)
     {
         Exception::operator=(e);
 
@@ -123,14 +123,14 @@ public:
 class InvalidOperationException : public Exception
 {
 public:
-    InvalidOperationException() : Exception(0) {};
-    InvalidOperationException(const char* message) : Exception(message) {};
-    InvalidOperationException(const char* file, int line) : Exception(file, line) {};
-    InvalidOperationException(const char* message, const char* file, int line) : Exception(message, file, line) {};
+    InvalidOperationException() : Exception(0) { }
+    InvalidOperationException(const char* message) : Exception(message) { }
+    InvalidOperationException(const char* file, int line) : Exception(file, line) { }
+    InvalidOperationException(const char* message, const char* file, int line) : Exception(message, file, line) { }
 
-    InvalidOperationException(const InvalidOperationException& e) : Exception(e) {};
+    InvalidOperationException(const InvalidOperationException& e) : Exception(e) { }
 
-    InvalidOperationException operator= (const InvalidOperationException& e)
+    InvalidOperationException& operator= (const InvalidOperationException& e)
     {
         Exception::operator=(e);
 
@@ -139,4 +139,6 @@ public:
 };
 
 }
+
+
 #endif // EXCEPTION_H

@@ -2,11 +2,12 @@
 #define DYNAMICLIST_H
 
 #include "SeqList.h"
+#include "Exception.h"
 
 namespace DTLib
 {
 
-template <typename T>
+template < typename T >
 class DynamicList : public SeqList<T>
 {
 protected:
@@ -17,14 +18,14 @@ public:
     {
         this->m_array = new T[capacity];
 
-        if (this->m_array != nullptr)
+        if ( this->m_array != nullptr )
         {
             this->m_length = 0;
             this->m_capacity = capacity;
         }
         else
         {
-            THROW_EXCEPTION(NoEnoughMemoryException, "No memory to create DynamicList object...");
+            THROW_EXCEPTION(NoEnoughMemoryException, "No memory to create DynamicList object ...");
         }
     }
 
@@ -36,11 +37,11 @@ public:
     /* 重置顺序存储空间的大小 */
     void resize(int capacity)
     {
-        if (capacity != m_capacity)
+        if ( capacity != m_capacity )
         {
             T* array = new T[capacity];
 
-            if (array != nullptr)
+            if ( array != nullptr )
             {
                 int length = (this->m_length < capacity ? this->m_length : capacity);
 
@@ -59,7 +60,7 @@ public:
             }
             else
             {
-                THROW_EXCEPTION(NoEnoughMemoryException, "No memory to resize DynamicList object...");
+                THROW_EXCEPTION(NoEnoughMemoryException, "No memory to resize DynamicList object ...");
             }
         }
     }
@@ -69,6 +70,7 @@ public:
         delete[] this->m_array;
     }
 };
+
 
 }
 
